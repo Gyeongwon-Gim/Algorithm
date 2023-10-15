@@ -4,38 +4,24 @@ import sys
 def solution(n: int) -> int:
     if n == 1 or n == 3:
         return -1
-    answer = 0
-    if n % 2 == 0:
-        answer = even_number(n)
-    else:
-        answer = odd_number(n)
-    return answer
+    return even_num(n) if n % 2 == 0 else odd_num(n)
     
-def even_number(n: int) -> int:
-    result = 0
-    
-    coin_two = (n % 10) // 2
-    result += coin_two
-    n -= coin_two * 2
+def even_num(n: int) -> int:
+    return operation(n)
 
-    coin_five = n // 5
-    result += coin_five
-
-    return result
-
-def odd_number(n: int) -> int:
+def odd_num(n: int) -> int:
     n -= 5
-    result = 1 
+    return operation(n) + 1 
+ 
 
-    coin_two = (n % 10) // 2
-    result += coin_two
-    n -= coin_two * 2
+def operation(num: int) -> int:
+    coin_two = (num % 10) // 2
+    result = coin_two
+    num -= coin_two * 2
     
-    coin_five = n // 5
+    coin_five = num // 5
     result += coin_five
-    
     return result
-
 
 input = sys.stdin.readline
 n = int(input())
