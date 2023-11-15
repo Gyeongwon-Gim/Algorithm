@@ -48,14 +48,14 @@ def solution(n: int, lost: list, reserve: list) -> int:
         elif student[i] == 0 and student[i+1] > 1:
             student[i] += 1
             student[i+1] -= 1
-    # <- 방향
-    for i in range(1, len(student), -1):
-        if student[i] > 1 and student[i-1] == 0:
-            student[i] -= 1
-            student[i-1] += 1
-        elif student[i] == 0 and student[i+1] > 1:
-            student[i] += 1
-            student[i-1] -= 1
+    # # <- 방향
+    # for i in range(1, len(student), -1):
+    #     if student[i] > 1 and student[i-1] == 0:
+    #         student[i] -= 1
+    #         student[i-1] += 1
+    #     elif student[i] == 0 and student[i+1] > 1:
+    #         student[i] += 1
+    #         student[i-1] -= 1
     for i in range(len(student)):
         if student[i] >= 1:
             max_count += 1
