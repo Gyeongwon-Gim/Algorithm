@@ -1,5 +1,3 @@
-from collections import deque
-
 def solution(brown, yellow):
     total = brown + yellow
     # brown + yellow 를 두 개의 약수로 인수분해(m * n) 한 경우에 대하여
@@ -8,5 +6,5 @@ def solution(brown, yellow):
         if (total % i) == 0:
             j = total / i
         if (i - 2)*(j - 2) == yellow:
-            return [i, j] if i > j else [j, i]
+            return [j, i]
         
