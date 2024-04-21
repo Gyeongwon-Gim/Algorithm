@@ -13,10 +13,9 @@ for i in ascii_uppercase:
 for i in word:
     alphabet_dict[i] += 1
 
-key_max = max(alphabet_dict, key = alphabet_dict.get)
-val_max = alphabet_dict.pop(max(alphabet_dict, key = alphabet_dict.get))
-
-if val_max == alphabet_dict.pop(max(alphabet_dict, key = alphabet_dict.get)):
-    print('?')
+# sol 2
+result = [k for k,v in alphabet_dict.items() if max(alphabet_dict.values()) == v]
+if len(result) == 1:
+    print(result[0])
 else:
-    print(key_max)
+    print('?')
