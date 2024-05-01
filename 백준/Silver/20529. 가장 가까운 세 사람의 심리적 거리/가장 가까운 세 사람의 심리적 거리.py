@@ -18,15 +18,16 @@ def solution():
     N = int(input())
     id = [i for i in range(N)]
     members = list(zip(input().rstrip().split(), id))
-    distances = []
+    distance = []
     if N > 32: 
         return 0
-    for case in combinations(members, 3):
-        distance = 0
-        for x, y in combinations(case, 2):
-            distance += get_distance(x, y)
-        distances.append(distance)
-    return min(distances)
+    for a, b, c in combinations(members, 3):
+        dist = 0
+        dist += get_distance(a, b)
+        dist += get_distance(b, c)
+        dist += get_distance(a, c)
+        distance.append(dist)
+    return min(distance)
 
 T = int(input())
 for _ in range(T):
